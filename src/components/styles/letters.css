@@ -1,0 +1,128 @@
+ul.selectedLetters,
+ul.availableLetters {
+	display: inline-grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: auto;
+	grid-auto-flow: column;
+	min-height: 5em;
+	min-width: 1px;
+	list-style: none;
+	margin: 0 0 1em 0;
+	padding: 0;
+}
+
+ul.selectedLetters > li,
+ul.availableLetters > li {
+	width: 5em;
+	height: 5em;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	list-style: none;
+	padding: 0;
+}
+
+ul.selectedLetters > li {
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+
+.letter {
+	background: #850372;
+	color: #ffffff;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 30px;
+	font-size: 220%;
+	text-transform: uppercase;
+}
+
+ul.selectedLetters .letter {
+	background: #006400;
+}
+
+ul.availableLetters .letter:hover {
+	cursor: pointer;
+}
+
+.shouldBeMedium ul.selectedLetters,
+.shouldBeMedium ul.availableLetters {
+	min-height: 3em;
+}
+
+.shouldBeMedium ul.selectedLetters > li,
+.shouldBeMedium ul.availableLetters > li {
+	width: 3em;
+	height: 3em;
+}
+
+.shouldBeMedium .letter {
+	width: 42px;
+	height: 42px;
+	line-height: 42px;
+	border-radius: 21px;
+	font-size: 180%;
+}
+
+.shouldBeSmall ul.selectedLetters,
+.shouldBeSmall ul.availableLetters {
+	min-height: 1.8em;
+}
+
+.shouldBeSmall ul.selectedLetters > li,
+.shouldBeSmall ul.availableLetters > li {
+	width: 1.8em;
+	height: 1.8em;
+}
+
+.shouldBeSmall .letter {
+	width: 24px;
+	height: 24px;
+	line-height: 24px;
+	border-radius: 12px;
+	font-size: 130%;
+}
+
+@media (max-width: 600px) {
+	ul.selectedLetters,
+	ul.availableLetters {
+		min-height: 3em;
+	}
+
+	ul.selectedLetters > li,
+	ul.availableLetters > li {
+		width: 3em;
+		height: 3em;
+	}
+
+	.letter {
+		width: 42px;
+		height: 42px;
+		line-height: 42px;
+		border-radius: 21px;
+		font-size: 180%;
+	}
+
+	.shouldBeMedium ul.selectedLetters,
+	.shouldBeMedium ul.availableLetters {
+		min-height: 1.8em;
+	}
+
+	.shouldBeMedium ul.selectedLetters > li,
+	.shouldBeMedium ul.availableLetters > li {
+		width: 1.8em;
+		height: 1.8em;
+	}
+
+	.shouldBeMedium .letter {
+		width: 24px;
+		height: 24px;
+		line-height: 24px;
+		border-radius: 12px;
+		font-size: 130%;
+	}
+}

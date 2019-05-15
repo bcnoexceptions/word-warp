@@ -1,0 +1,44 @@
+.menu {
+	max-width: 400px;
+	min-height: 400px;
+}
+
+@media (min-width: 600px) {
+	.menu {
+		max-width: 600px;
+	}
+}
+
+@media (min-width: 900px) {
+	.menu {
+		max-width: 900px;
+	}
+}
+
+.menu h1 {
+	color: #534241;
+	font-size: 2.4em;
+	text-align: center;
+	margin: 0.3em 0;
+}
+
+ul.menuOptions {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.menuOptions > li {
+	margin: 6px 10px;
+	padding: 3px;
+	background: #ffffff;
+	border-radius: 3px;
+	text-align: center;
+	border: 1px solid #414141;
+}
+
+ul.menuOptions > li.selectable:hover,
+ul.menuOptions > li.selectable:active {
+	background: #a6f895;
+	cursor: pointer;
+}

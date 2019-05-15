@@ -9,11 +9,24 @@ export class WordAnagramSet {
         splitWord.sort();
 
         const sortedWord = splitWord.join("");
-        if (this.anagramMap[sortedWord]) {
-            this.anagramMap[sortedWord].push(word);
+        let current = this.anagramMap.get(sortedWord);
+        if (current) {
+            current.push(word);
         } else {
-            this.anagramMap[sortedWord] = [word];
+            this.anagramMap.set(sortedWord, [word]);
         }
+    }
+
+    public allWords(): string[] {
+        let result: Set<string> = new Set<string>();
+        this.anagramMap.forEach((someWords, key) => {
+            key = key; // unused
+            for (let word of someWords) {
+                result.add(word);
+            }
+        });
+
+        return Array.from(result);
     }
 
     public getMatches(pattern: string): string[] {
@@ -21,9 +34,6 @@ export class WordAnagramSet {
         splitWord.sort();
         const sortedWord = splitWord.join("");
 
-        if (this.anagramMap[sortedWord]) {
-            return this.anagramMap[sortedWord];
-        }
-        return [];
+        return this.anagramMap.get(sortedWord) || [];
     }
 }

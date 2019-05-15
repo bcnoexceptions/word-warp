@@ -1,0 +1,64 @@
+.mainGame {
+	max-width: 400px;
+	overflow: auto;
+	background: white;
+	padding: 10px;
+	position: relative;
+}
+
+.inGameMenu {
+	padding-bottom: 1em;
+	border-bottom: 1px dashed #4d4f50;
+	margin-bottom: 1em;
+}
+
+.goButton {
+	background: #598644;
+	color: white;
+	margin: 0 0 2em 0;
+	width: 60px;
+	height: 40px;
+	border-radius: 3px;
+	border: 1px solid #598644;
+	line-height: 20px;
+	font-size: 150%;
+	text-align: 4center;
+	cursor: pointer;
+}
+
+.goButton.hide {
+	visibility: hidden;
+}
+
+.goButton:hover,
+.goButton:active {
+	color: #598644;
+	background: white;
+}
+
+.inGameMenu button {
+	background: #144f72;
+	color: #ffffff;
+	border: 1px solid #144f72;
+	margin-right: 1em;
+	font-size: 1.1em;
+	cursor: pointer;
+}
+
+.inGameMenu button:hover,
+.inGameMenu button:active {
+	color: #144f72;
+	background: #ffffff;
+}
+
+@media (min-width: 600px) {
+	.mainGame {
+		max-width: 600px;
+	}
+}
+
+@media (min-width: 900px) {
+	.mainGame {
+		max-width: 900px;
+	}
+}

@@ -1,0 +1,36 @@
+.celebration {
+	text-shadow: #cccccc 2px 2px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	animation: 0.8s linear 0s 1 normal forwards running celebrationAnimation;
+	font-size: 200%;
+	background: #c0ffb7;
+
+	/* reset by the animation */
+	left: -99999px;
+}
+
+@keyframes celebrationAnimation {
+	0% {
+		opacity: 0;
+		color: black;
+		display: block;
+		left: 20px;
+	}
+
+	90% {
+		opacity: 1;
+		color: #5a4f20;
+	}
+
+	99% {
+		opacity: 0;
+		display: block;
+		left: 20px;
+	}
+
+	100% {
+		left: -99999px;
+	}
+}
