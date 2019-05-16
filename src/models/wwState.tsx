@@ -1,5 +1,5 @@
 import * as _ from "lodash";
-import { GlobalWordList } from "../data/wordList";
+import { CommonWordList, GlobalWordList } from "../data/wordList";
 import { Dictionary } from "./dictionary";
 
 export enum ScreenStateEnum {
@@ -7,6 +7,11 @@ export enum ScreenStateEnum {
 	Paused,
 	InRound,
 	BetweenRounds,
+}
+
+export enum ActiveDictionaryEnum {
+	AllWords,
+	CommonWords,
 }
 
 export class AppState {
@@ -24,6 +29,8 @@ export class AppState {
 	public foundWords: string[];
 	public lastWordWasSuccessful: boolean;
 
+	public activeWordList: ActiveDictionaryEnum;
+
 	public constructor(other?: AppState) {
 		if (other) {
 			this.allWords = other.allWords;
@@ -36,12 +43,14 @@ export class AppState {
 			this.allSubWordsThisRound = other.allSubWordsThisRound;
 			this.foundWords = other.foundWords;
 			this.lastWordWasSuccessful = other.lastWordWasSuccessful;
+			this.activeWordList = other.activeWordList;
 			return;
 		}
 
 		this.allWords = new Dictionary(GlobalWordList);
 		this.wordLength = 6;
 		this.screenState = ScreenStateEnum.BeforeGame;
+		this.activeWordList = ActiveDictionaryEnum.AllWords;
 		this.switchToNewWord();
 	}
 
@@ -60,5 +69,30 @@ export class AppState {
 		this.allSubWordsThisRound = this.allWords.findWordsFrom(this.currentWord).sort(cmp);
 		this.foundWords = [];
 		this.lastWordWasSuccessful = false;
+	}
+
+	public switchDictionary(): void {
+		let newWordList: string[];
+		let newEnum: ActiveDictionaryEnum;
+
+		switch (this.activeWordList) {
+			case ActiveDictionaryEnum.AllWords:
+				newWordList = CommonWordList;
+				newEnum = ActiveDictionaryEnum.CommonWords;
+				break;
+			case ActiveDictionaryEnum.CommonWords:
+				newWordList = GlobalWordList;
+				newEnum = ActiveDictionaryEnum.AllWords;
+				break;
+			default:
+				return;
+		}
+
+		this.allWords = new Dictionary(newWordList);
+		this.activeWordList = newEnum;
+		if (this.allWords.maxWordLength() < this.wordLength) {
+			this.wordLength = this.allWords.maxWordLength();
+		}
+		this.switchToNewWord();
 	}
 }
