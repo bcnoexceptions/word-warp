@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { AppState } from "src/models/wwState";
+import { AppState } from "../models/wwState";
 import "./styles/celebration.css";
 
 interface CelebrationProps {
@@ -33,7 +33,7 @@ let Celebration = connect(
 	}),
 	{
 		// Map dispatch to props
-	}
+	},
 )(CelebrationImpl);
 
 export { Celebration };

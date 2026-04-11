@@ -6,7 +6,7 @@ export const configureStore = (initialState?: AppState) => {
 	const store = createStore(
 		rootReducer,
 		initialState,
-		applyMiddleware()
+		applyMiddleware(),
 		// middleware placeholder
 	);
 

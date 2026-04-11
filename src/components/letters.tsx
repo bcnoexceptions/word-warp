@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { raiseLetterSelect } from "src/actions/letters";
-import { AppState } from "src/models/wwState";
+import { raiseLetterSelect } from "../actions/letters";
+import { AppState } from "../models/wwState";
 import "./styles/letters.css";
 
 const AvailableLettersClass = "availableLetters";
@@ -65,7 +65,7 @@ let Letters = connect(
 	}),
 	{
 		onLetterClicked: (pos: number) => raiseLetterSelect(pos),
-	}
+	},
 )(LettersImpl);
 
 export { Letters };
@@ -79,14 +79,14 @@ interface ISelectedLettersProps {
 	numAvailable: number;
 }
 
-const SelectedLetters: React.FunctionComponent<ISelectedLettersProps> = props => {
+const SelectedLetters: React.FunctionComponent<ISelectedLettersProps> = (props) => {
 	let letterDisp: JSX.Element[] = [];
 	for (let i = 0; i < props.numAvailable; i++) {
 		if (i < props.selectedCharacters.length) {
 			letterDisp.push(
 				<li key={i}>
 					<span className="letter">{props.selectedCharacters[i]}</span>
-				</li>
+				</li>,
 			);
 		} else {
 			letterDisp.push(<li className="empty" key={i} />);
@@ -101,7 +101,7 @@ interface IAvailableLettersProps {
 	onLetterClicked?: ElementClickedDelegate;
 }
 
-const AvailableLetters: React.FunctionComponent<IAvailableLettersProps> = props => {
+const AvailableLetters: React.FunctionComponent<IAvailableLettersProps> = (props) => {
 	let letterDisp: JSX.Element[] = [];
 	for (let i = 0; i < props.availableLetters.length; i++) {
 		let letter = props.availableLetters[i];
@@ -110,7 +110,7 @@ const AvailableLetters: React.FunctionComponent<IAvailableLettersProps> = props 
 				<span className="letter" onClick={props.onLetterClicked}>
 					{letter}
 				</span>
-			</li>
+			</li>,
 		);
 	}
 

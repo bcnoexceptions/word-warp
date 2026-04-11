@@ -1,7 +1,7 @@
 import * as _ from "lodash";
-import { KeyAction, LetterSelectAction } from "src/actions/letters";
-import { ActionTypeEnum, WWAction } from "src/actions/main";
-import { AppState, ScreenStateEnum } from "src/models/wwState";
+import { KeyAction, LetterSelectAction } from "../actions/letters";
+import { ActionTypeEnum, WWAction } from "../actions/main";
+import { AppState, ScreenStateEnum } from "../models/wwState";
 
 export default function lettersReducer(state: AppState, action: WWAction) {
 	let newState: AppState;

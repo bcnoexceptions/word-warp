@@ -1,8 +1,8 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { clear, enterPressed, giveUp, shuffle } from "src/actions/letters";
-import { nextRound, pause } from "src/actions/menu";
-import { AppState, ScreenStateEnum } from "src/models/wwState";
+import { clear, enterPressed, giveUp, shuffle } from "../actions/letters";
+import { nextRound, pause } from "../actions/menu";
+import { AppState, ScreenStateEnum } from "../models/wwState";
 import { Celebration } from "./celebration";
 import { FindableWords } from "./findableWords";
 import { KeyboardListener } from "./keyboardListener";
@@ -114,7 +114,7 @@ let MainGame = connect(
 		onNextRound: () => nextRound(),
 		onPause: () => pause(),
 		onShuffle: () => shuffle(),
-	}
+	},
 )(MainGameImpl);
 
 export { MainGame };

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { pause } from "src/actions/menu";
 import { backspacePressed, enterPressed, raiseKeyPressed, recallLast } from "../actions/letters";
+import { pause } from "../actions/menu";
 import { AppState } from "../models/wwState";
 
 interface KeyboardListenerProps {
@@ -60,7 +60,7 @@ let KeyboardListener = connect(
 		onEnter: () => enterPressed(),
 		onEscape: () => pause(),
 		onUpArrow: () => recallLast(),
-	}
+	},
 )(KeyboardListenerImpl);
 
 export { KeyboardListener };
